@@ -4,7 +4,7 @@ import openai
 
 app = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "API KEY"
 
 messages = [{"role": "system",
              "content": "An Artificial Lawyer To Solve Your Legal Troubles"}]

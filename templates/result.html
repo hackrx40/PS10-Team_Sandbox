@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indian Kanoon API Results</title>
+</head>
+<body>
+    <h1>Indian Kanoon API Results</h1>
+    <div id="ikresult">
+        <!-- The results will be inserted here -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var apiurl = "/search/";
+            var headers = {
+                'Authorization': 'Token f93d1774ba0cfbe57d2648d98443d437fa611892'
+            };
+
+            var complete_fn = function(data) {
+                // Convert the JSON object to a string and preserve indentation for readability
+                var jsonString = JSON.stringify(data, null, 2);
+
+                // Display the JSON string in a preformatted HTML element
+                var html_data = '<pre>' + jsonString + '</pre>';
+
+                // Append the constructed HTML data to the #ikresult div
+                $("#ikresult").html(html_data);
+            };
+
+            var settings = {
+                url: apiurl,
+                headers: headers,
+                dataType: "json",
+                complete: complete_fn,
+                type: "POST"
+            };
+
+            // You can trigger the AJAX request here or on form submission, as needed
+            $.ajax(settings);
+        });
+    </script>
+</body>
+</html>

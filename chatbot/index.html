@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Lawyer</title>
+    <script>
+        function flagResponse() {
+            const form = document.getElementById("flagForm");
+            const formData = new FormData(form);
+            fetch("/flag_response", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Response flagged successfully.");
+                } else {
+                    alert("Failed to flag the response.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>AI Lawyer</h1>
+    <p><strong>System:</strong> An Artificial Lawyer To Solve Your Legal Troubles</p>
+    <form action="/" method="post">
+        <label for="user_input">Your Input:</label><br>
+        <textarea id="user_input" name="user_input" rows="5" cols="50">{{ user_input }}</textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if ai_response %}
+        <p><strong>User:</strong> {{ user_input }}</p>
+        <p><strong>AI Lawyer:</strong> {{ ai_response }}</p>
+        <form id="flagForm" onsubmit="flagResponse(); return false;">
+            <input type="hidden" name="user_input" value="{{ user_input }}">
+            <input type="hidden" name="ai_response" value="{{ ai_response }}">
+            <button type="submit">Flag</button>
+        </form>
+    {% endif %}
+</body>
+</html>

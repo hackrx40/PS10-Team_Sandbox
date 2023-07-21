@@ -1,12 +1,12 @@
-// App.js
 import React, { useRef, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import WebViewer from '@pdftron/webviewer';
 import './App.css';
 import Sidebar from './sidebar';
 import Search from './pages/search';
 import Notes from './pages/notes';
 import Doc from './pages/doc_gen';
+
 
 const App = () => {
   const viewer = useRef(null);
@@ -101,8 +101,20 @@ const App = () => {
 function Home() {
   return (
     <div>
-      {/* Common Header */}
-      {/* <div className="header">React sample</div> */}
+      {/* Common Navbar */}
+      <nav className="navbar">
+        <ul className="navbar-list">
+          <li className="navbar-item">
+            <Link to="/search" className="navbar-link">Search</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/notes" className="navbar-link">Notes</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/document-generator" className="navbar-link">Doc Generator</Link>
+          </li>
+        </ul>
+      </nav>
 
       {/* Buttons for Search, Notes, and Doc Generator */}
       <div className="buttons-container">

@@ -283,3 +283,15 @@ html,
   flex: 1; /* Make the WebViewer take up remaining space */
   border: 1px solid #ccc; /* Add a border for clarity */
 }
+
+
+/* New styles for the whole page */
+body,
+html,
+.App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(243, 238, 229); /* Set the background color */
+}

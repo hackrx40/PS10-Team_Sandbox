@@ -1,0 +1,51 @@
+/* caseComponentStyles.css */
+.case-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f6e5d9; /* Pastel light brown background color */
+    padding: 20px;
+    width: 100%;
+    max-width: 800px; /* Set the maximum width to limit the size of the case component */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+  
+  .case-container h3 {
+    margin-bottom: 10px;
+    color: #333; /* Font color */
+  }
+  
+  .case-container p {
+    margin-bottom: 10px;
+    color: #555; /* Font color */
+  }
+  
+  .doc-details {
+    overflow-y: auto;
+    max-height: 200px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff; /* White background color for the details box */
+  }
+  
+  .case-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Media query for small screens */
+  @media screen and (max-width: 768px) {
+    .case-container {
+      padding: 10px;
+    }
+  }
+  
+  

@@ -5,6 +5,7 @@ html, body, #root {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .webviewer {
   flex: 1;
   margin: 8px;

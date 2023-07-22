@@ -1,0 +1,15 @@
+{
+    "COMPANYNAME": "PDFTron",
+    "CUSTOMERNAME": "Andrey Safonov",
+    "notes": [
+      {
+        "title": "Note 1 Title",
+        "content": "Note 1 Content"
+      },
+      {
+        "title": "Note 2 Title",
+        "content": "Note 2 Content"
+      },
+    ]
+  }
+  

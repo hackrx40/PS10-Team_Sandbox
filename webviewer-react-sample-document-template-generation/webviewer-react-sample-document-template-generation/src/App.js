@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import WebViewer from '@pdftron/webviewer';
 import './App.css';
 import Sidebar from './sidebar';
 import Search from './pages/search';
-import Notes from './pages/notes';
+import Notes from './pages/notes'; // Import the Notes component
 import Doc from './pages/doc_gen';
-
+import Home from './Home'; // Import the Home component
 
 const App = () => {
   const viewer = useRef(null);
@@ -45,11 +45,12 @@ const App = () => {
     setViewerKey(Date.now()); // Generate a new key to force rendering a new WebViewer instance
   };
 
+
   function DocumentGenerator() {
     return (
       <div>
         {/* Common Header */}
-       
+        {/* <div className="header">React Sample</div> */}
 
         {/* Common Sidebar */}
         <Sidebar onJsonDataChange={handleJsonDataChange} />
@@ -88,42 +89,14 @@ const App = () => {
           <Route path="/search" element={<Search />} />
 
           {/* Route for the Notes component */}
-          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes" element={<Notes />} /> {/* Add this route for the Notes component */}
 
           {/* Route for the Doc Generator component */}
-          <Route path="/document-generator" element={<Doc />} />
+          <Route path="/doc_generator" element={<Doc />} />
         </Routes>
       </Router>
     </div>
   );
 };
-
-function Home() {
-  return (
-    <div>
-      {/* Common Navbar */}
-      <nav className="navbar">
-        <ul className="navbar-list">
-          <li className="navbar-item">
-            <Link to="/search" className="navbar-link">Search</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/notes" className="navbar-link">Notes</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/document-generator" className="navbar-link">Doc Generator</Link>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Buttons for Search, Notes, and Doc Generator */}
-      <div className="buttons-container">
-        <Link to="/search" className="button">Search</Link>
-        <Link to="/notes" className="button">Notes</Link>
-        <Link to="/document-generator" className="button">Doc Generator</Link>
-      </div>
-    </div>
-  );
-}
 
 export default App;

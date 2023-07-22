@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summarize Text</title>
+</head>
+<body>
+    <h1>Summarize Text</h1>
+    <form action="/summarize" method="post">
+        <textarea name="sentence" rows="10" cols="50"></textarea><br><br>
+        <label for="max_length">Max Length:</label>
+        <input type="number" name="max_length" min="50" max="500" step="10" value="150"><br><br>
+        <label for="min_length">Min Length:</label>
+        <input type="number" name="min_length" min="10" max="450" step="10" value="50"><br><br>
+        <label for="do_sample">Do Sample:</label>
+        <input type="checkbox" name="do_sample"><br><br>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if text %}
+        <h2>Summary:</h2>
+        <p>{{ text }}</p>
+    {% endif %}
+</body>
+</html>

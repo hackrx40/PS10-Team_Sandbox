@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask Your Text</title>
+</head>
+<body>
+    <h1>Ask Your Text</h1>
+    <form method="POST" action="/">
+        <textarea name="text" rows="10" cols="50" placeholder="Enter your text"></textarea>
+        <br>
+        <input type="text" name="question" placeholder="Ask a question about your text">
+        <br>
+        <input type="submit" value="Submit">
+        <input type="button" value="Add Notes" onclick="addToNotes()">
+    </form>
+
+    {% if response %}
+    <h2>Result:</h2>
+    <pre>{{ response }}</pre>
+    {% endif %}
+
+    <div id="notes-container"></div>
+
+    <!-- Add the React and ReactDOM libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+
+    <!-- Import the Notes component -->
+    <script src="./Notes.js"></script>
+
+    <script>
+        function addToNotes() {
+            const responseText = document.querySelector("pre").textContent;
+            const notesContainer = document.getElementById("notes-container");
+
+            const notesComponent = React.createElement(Notes, { result: responseText });
+            ReactDOM.render(notesComponent, notesContainer);
+        }
+    </script>
+</body>
+</html>

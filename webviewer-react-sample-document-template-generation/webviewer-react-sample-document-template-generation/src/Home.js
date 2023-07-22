@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger, Power2 } from "gsap/all";
-import { useNavigate, Link } from "react-router-dom";
+import { ScrollTrigger } from "gsap/all";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +25,9 @@ const data = [
     buttonLink: "/document-generator"
   },
   {
-    image: "https://ibb.co/uvw987" // Image link for the fifth div
+    image: "https://ibb.co/uvw987", // Image link for the fifth div
+    buttonLabel: "Chatbot",
+    buttonLink: "http://127.0.0.1:5006/"
   }
 ];
 
@@ -129,12 +131,7 @@ const Home = () => {
                   <img src={image} alt="" className="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} ref={addToRefs} />
                 </div>
               </div>
-              <h1>Search Engine </h1>
-              <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              </p>
+              
               <Link to={buttonLink} className="button" style={{ ...buttonStyles, right: "10%" }}>
                 {buttonLabel}
               </Link>
@@ -159,20 +156,48 @@ const Home = () => {
                   <img src={image} alt="" className="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} ref={addToRefs} />
                 </div>
               </div>
-              <h1>Search Engine </h1>
-              <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              </p>
+            
               <Link to={buttonLink} className="button" style={{ ...buttonStyles, left: "10%" }}>
                 {buttonLabel}
               </Link>
+              
             </div>
           );
         }
 
-        // Rest of the divs with 100% width and background color
+        // Fifth div with 100% width and background color
+        if (index === 4) {
+          return (
+            <div
+              key={index}
+              style={{
+                width: "100%", // Set 100% width for the div
+                height: "100vh", // Full viewport height for the div
+                position: "relative",
+                background: "#E5C78F",
+              }}
+            >
+              {/* Image on the right */}
+              <div className="image-container" style={{ width: "50%", height: "100%", display: "flex", alignItems: "flex-start", position: "absolute", top: 0, left: 0 }}>
+                <div style={{ width: "100%", height: "100%" }}>
+                  <img src={image} alt="" className="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} ref={addToRefs} />
+                </div>
+              </div>
+
+              {/* Button on the left */}
+              <Link to={buttonLink} className="button" style={{ ...buttonStyles, left: "50%", transform: "translateX(-50%)" }}>
+                {buttonLabel}
+              </Link>
+
+              {/* Customized h1 and p */}
+              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+              
+              </div>
+            </div>
+          );
+        }
+
+        // Other divs with 100% width and background color
         return (
           <div
             key={index}
@@ -188,12 +213,7 @@ const Home = () => {
                 <img src={image} alt="" className="image" style={{ width: "100%", height: "100%", objectFit: "cover" }} ref={addToRefs} />
               </div>
             </div>
-            <h1>Search Engine </h1>
-              <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-              </p>
+           
             <Link to={buttonLink} className="button" style={{ ...buttonStyles, right: "10%" }}>
               {buttonLabel}
             </Link>
@@ -205,5 +225,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
